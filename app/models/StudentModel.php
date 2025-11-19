@@ -19,7 +19,7 @@ class StudentModel extends BaseModel {
         return $stmt->execute([$ci, $name, $email, $birth_date, $age, $semester, $materia]);
     }
 
-    // 👉 BORRA DEFINITIVAMENTE AL ALUMNO
+    //BORRA DEFINITIVAMENTE AL ALUMNO
     public function delete($id) {
         $stmt = $this->pdo->prepare("DELETE FROM students WHERE id=?");
         return $stmt->execute([$id]);

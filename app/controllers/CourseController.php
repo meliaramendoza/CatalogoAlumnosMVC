@@ -71,7 +71,7 @@ class CourseController {
         $courseId = $_GET['course_id'];
         $studentId = $_GET['student_id'];
 
-        // ❗ AHORA SI SE ELIMINA COMPLETAMENTE EL ALUMNO DE LA TABLA
+        //AHORA SI SE ELIMINA COMPLETAMENTE EL ALUMNO DE LA TABLA
         $this->studentModel->delete($studentId);
 
         header("Location: ?route=course/studentsByCourse&id=" . $courseId);
