@@ -25,7 +25,7 @@
 
 <script>
 
-// 🟦 Calcular edad automáticamente
+//Calcular edad automáticamente
 document.getElementById("birth_date").addEventListener("change", function () {
     let birthDate = new Date(this.value);
     let today = new Date();
@@ -42,12 +42,12 @@ document.getElementById("birth_date").addEventListener("change", function () {
     document.getElementById("age").value = age;
 });
 
-// 🟩 Validación final del formulario
+//Validación final del formulario
 function validateForm() {
     const semester = parseInt(document.getElementById("semester").value);
     const age = parseInt(document.getElementById("age").value);
 
-    // Validar todos los campos
+    //Validar todos los campos
     const fields = ["ci", "name", "email", "birth_date", "semester"];
     for (let field of fields) {
         let value = document.getElementById(field).value.trim();
@@ -57,13 +57,13 @@ function validateForm() {
         }
     }
 
-    // Validar edad calculada
+    //Validar edad calculada
     if (isNaN(age) || age < 1) {
         alert("⚠️ La fecha de nacimiento no es válida.");
         return false;
     }
 
-    // Validar semestre máximo
+    //Validar semestre máximo
     if (semester < 1 || semester > 10) {
         alert("⚠️ El semestre debe estar entre 1 y 10.");
         return false;

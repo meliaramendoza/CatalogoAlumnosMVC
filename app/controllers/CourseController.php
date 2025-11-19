@@ -38,7 +38,7 @@ class CourseController {
     }
 
     /** 
-     * 📌 LISTA estudiantes por MATERIA
+     * LISTA estudiantes por MATERIA
      * Aquí filtramos desde la tabla students directamente:
      * WHERE students.materia = courses.name
      */
@@ -52,7 +52,7 @@ class CourseController {
         $courseId = $_GET['id'];
         $course = $this->model->getById($courseId);
 
-        // 🔥 CLAVE: Obtener estudiantes según la materia
+        //CLAVE: Obtener estudiantes según la materia
         $students = $this->studentModel->getStudentsByMateria($course['name']);
 
         require 'app/views/partials/header.php';
@@ -71,8 +71,8 @@ class CourseController {
         $courseId = $_GET['course_id'];
         $studentId = $_GET['student_id'];
 
-        // 🎯 Remover materia del alumno (desinscribir)
-        $this->studentModel->removeMateriaFromStudent($studentId);
+        // ❗ AHORA SI SE ELIMINA COMPLETAMENTE EL ALUMNO DE LA TABLA
+        $this->studentModel->delete($studentId);
 
         header("Location: ?route=course/studentsByCourse&id=" . $courseId);
         exit;

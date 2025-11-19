@@ -21,7 +21,7 @@ class StudentController {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            // Campos requeridos
+            //Campos requeridos
             $required = ['ci', 'name', 'email', 'birth_date', 'age', 'semester', 'materia'];
             
             foreach ($required as $field) {
@@ -31,7 +31,7 @@ class StudentController {
                 }
             }
 
-            // Si no hay error, guardar datos
+            //Si no hay error, guardar datos
             if (empty($error)) {
                 $this->model->create(
                     $_POST['ci'],
@@ -55,7 +55,12 @@ class StudentController {
     }
 
     public function delete() {
-        if (isset($_GET['id'])) $this->model->delete($_GET['id']);
+        if (isset($_GET['id'])) {
+            $this->model->delete($_GET['id']);
+        }
+        
         header("Location: ?route=student/index");
+        exit;
     }
+
 }

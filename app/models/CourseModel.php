@@ -5,10 +5,12 @@ class CourseModel extends BaseModel {
     public function getAll() {
         return $this->pdo->query("SELECT * FROM courses")->fetchAll(PDO::FETCH_ASSOC);
     }
+
     public function create($name, $desc) {
         $stmt = $this->pdo->prepare("INSERT INTO courses (name, description) VALUES (?, ?)");
         return $stmt->execute([$name, $desc]);
     }
+
     public function delete($id) {
         $stmt = $this->pdo->prepare("DELETE FROM courses WHERE id=?");
         return $stmt->execute([$id]);
@@ -30,6 +32,5 @@ class CourseModel extends BaseModel {
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
 
 }
