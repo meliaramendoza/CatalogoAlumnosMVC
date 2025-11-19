@@ -1,0 +1,30 @@
+.hero-section {
+    background-image: url("/catalogo_mvc/public/img/Aa.jpg"); /* sube una carpeta y entra a img */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px;
+    border-radius: 20px;
+    color: black;
+}
+
+.card {
+    height: 100%;
+    min-height: 250px; /* Puedes ajustar este valor */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body .text-end {
+    margin-top: auto; /* Mantiene el botón abajo */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
