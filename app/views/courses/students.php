@@ -1,4 +1,5 @@
 <div class="container my-5">
+    <!-- Encabezado con el nombre del curso y botón para agregar un nuevo alumno -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">
             Alumnos que cursan: <?= htmlspecialchars($course['name']) ?>
@@ -6,7 +7,9 @@
         <a href="?route=student/create" class="btn btn-success">➕ Nuevo Alumno</a>
     </div>
 
+    <!-- Tabla que lista los alumnos inscritos en el curso -->
     <table class="table table-striped table-hover shadow-sm text-center">
+        <!-- Encabezado de la tabla -->
         <thead class="table-primary">
             <tr>
                 <th>ID</th>
@@ -21,7 +24,9 @@
             </tr>
         </thead>
 
+        <!-- Cuerpo de la tabla -->
         <tbody>
+            <!-- Mostrar mensaje si no hay estudiantes -->
             <?php if (empty($students)): ?>
                 <tr>
                     <td colspan="9" class="text-muted py-3">
@@ -29,6 +34,7 @@
                     </td>
                 </tr>
             <?php else: ?>
+                <!-- Recorrer cada estudiante y mostrar sus datos -->
                 <?php foreach ($students as $s): ?>
                     <tr>
                         <td><?= $s['id'] ?></td>
@@ -40,6 +46,7 @@
                         <td><?= htmlspecialchars($s['semester'] ?? '') ?></td>
                         <td><?= htmlspecialchars($s['materia'] ?? '') ?></td>
                         <td>
+                            <!-- Botón para eliminar al alumno del curso con confirmación -->
                             <a onclick="return confirm('¿Eliminar alumno de este curso?')"
                                href="?route=course/removeStudent&course_id=<?= $course['id'] ?>&student_id=<?= $s['id'] ?>"
                                class="btn btn-danger btn-sm">🗑️</a>
