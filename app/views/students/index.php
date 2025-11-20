@@ -38,8 +38,8 @@
                     <td><?= htmlspecialchars($s['semester'] ?? '') ?></td>
                     <td><?= htmlspecialchars($s['materia'] ?? '') ?></td>
                     <td>
-                        <a onclick="return confirm('¿Eliminar alumno de este curso?')"
-                            href="?route=course/removeStudent&course_id=<?= $course['id'] ?>&student_id=<?= $s['id'] ?>"
+                        <a onclick="return confirm('¿Eliminar este alumno?')"
+                            href="?route=student/delete&id=<?= $s['id'] ?>"
                             class="btn btn-danger btn-sm">🗑️</a>
                     </td>
                 </tr>
